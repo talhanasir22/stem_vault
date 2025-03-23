@@ -84,7 +84,7 @@ class _LoginPageState extends State<LoginPage> {
                       fillColor: AppColors.textFieldColor,
                       // prefixIcon: Icon(Icons.person, color: AppColors.authIconColor),
                       hintText: "email@domain.com",
-                      hintStyle: AppText.authHintTextStyle(),
+                      hintStyle: AppText.hintTextStyle(),
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10)),
                       errorBorder: OutlineInputBorder(
@@ -110,7 +110,7 @@ class _LoginPageState extends State<LoginPage> {
                         onPressed: () => setState(() => _isVisible = !_isVisible),
                       ),
                       hintText: "Password",
-                      hintStyle: AppText.authHintTextStyle(),
+                      hintStyle: AppText.hintTextStyle(),
                       border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
                     ),
                     validator: (value) => (value == null || value.isEmpty) ?
@@ -147,7 +147,7 @@ class _LoginPageState extends State<LoginPage> {
                       children: [
                         TextSpan(
                           text: "By proceeding, you agree to our ",
-                          style: AppText.authHintTextStyle().copyWith(
+                          style: AppText.hintTextStyle().copyWith(
                               fontSize: 9
                           ),
                         ),
@@ -161,7 +161,7 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                         TextSpan(
                           text: " and ",
-                          style: AppText.authHintTextStyle().copyWith(
+                          style: AppText.hintTextStyle().copyWith(
                               fontSize: 9
                           ),
                         ),
@@ -212,7 +212,7 @@ class _LoginPageState extends State<LoginPage> {
                 SizedBox(height: 40),
 
                 // Or Continue With
-                Center(child: Text("- or continue with -", style: AppText.authHintTextStyle())),
+                Center(child: Text("- or continue with -", style: AppText.hintTextStyle())),
                 SizedBox(height: 15),
                 // Social Login Icons
                 Row(
@@ -282,7 +282,7 @@ class _LoginPageState extends State<LoginPage> {
                         children: [
                           TextSpan(
                             text: "I don\'t have an account ",
-                            style: AppText.authHintTextStyle(),
+                            style: AppText.hintTextStyle(),
                           ),
                           TextSpan(
                             text: "Sign Up",

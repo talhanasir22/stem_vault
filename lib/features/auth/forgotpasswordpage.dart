@@ -53,9 +53,9 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                     decoration: InputDecoration(
                       filled: true,
                       fillColor: AppColors.textFieldColor,
-                      prefixIcon: Icon(Icons.email, color: AppColors.authIconColor),
+                      prefixIcon: Icon(Icons.email, color: AppColors.hintIconColor),
                       hintText: "Enter your email address",
-                      hintStyle: AppText.authHintTextStyle(),
+                      hintStyle: AppText.hintTextStyle(),
                       border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
                       errorBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
@@ -78,11 +78,11 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                       children: [
                         TextSpan(
                           text: "* ",
-                          style: AppText.authHintTextStyle().copyWith(color: AppColors.bgColor),
+                          style: AppText.hintTextStyle().copyWith(color: AppColors.bgColor),
                         ),
                         TextSpan(
                           text: "We will send you a message to set your new password",
-                          style: AppText.authHintTextStyle(),
+                          style: AppText.hintTextStyle(),
                         ),
                       ],
                     ),

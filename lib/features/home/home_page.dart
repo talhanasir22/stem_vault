@@ -70,9 +70,9 @@ class _HomePageState extends State<HomePage> {
           /// Learning Progress Card with Button
           Positioned(
             top: 130,
-            left: MediaQuery.of(context).size.width * 0.1,
+            left: MediaQuery.of(context).size.width * 0.075,
             child: Container(
-              width: MediaQuery.of(context).size.width * 0.8,
+              width: MediaQuery.of(context).size.width * 0.85,
               padding: EdgeInsets.all(12),
               decoration: BoxDecoration(
                 color: AppColors.theme,
@@ -92,7 +92,7 @@ class _HomePageState extends State<HomePage> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text("Learned Today", style: AppText.authHintTextStyle()),
+                      Text("Learned Today", style: AppText.hintTextStyle()),
 
                       const SizedBox(height: 5),
 
@@ -103,7 +103,7 @@ class _HomePageState extends State<HomePage> {
                           children: [
                             TextSpan(
                               text: "/60min",
-                              style: AppText.authHintTextStyle(),
+                              style: AppText.hintTextStyle(),
                             ),
                           ],
                         ),

@@ -37,7 +37,7 @@ class AppText{
       fontWeight: FontWeight.w600,
     );
   }
-  static TextStyle authHintTextStyle(){
+  static TextStyle hintTextStyle(){
     return GoogleFonts.inter(
       fontSize: 12,
       color: Color(0xff828282),

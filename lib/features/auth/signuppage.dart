@@ -74,7 +74,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       fillColor: AppColors.textFieldColor,
                       // prefixIcon: Icon(Icons.person, color: AppColors.authIconColor),
                       hintText: "email@domain.com",
-                      hintStyle: AppText.authHintTextStyle(),
+                      hintStyle: AppText.hintTextStyle(),
                       border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
                       errorBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
@@ -99,7 +99,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         onPressed: () => setState(() => _isVisible = !_isVisible),
                       ),
                       hintText: "Password",
-                      hintStyle: AppText.authHintTextStyle(),
+                      hintStyle: AppText.hintTextStyle(),
                       border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
                       errorBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
@@ -125,7 +125,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         onPressed: () => setState(() => _isConfirmVisible = !_isConfirmVisible),
                       ),
                       hintText: "Confirm Password",
-                      hintStyle: AppText.authHintTextStyle(),
+                      hintStyle: AppText.hintTextStyle(),
                       border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
                       errorBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
@@ -143,7 +143,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       children: [
                         TextSpan(
                           text: "By proceeding, you agree to our ",
-                          style: AppText.authHintTextStyle().copyWith(
+                          style: AppText.hintTextStyle().copyWith(
                               fontSize: 9
                           ),
                         ),
@@ -157,7 +157,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         ),
                         TextSpan(
                           text: " and ",
-                          style: AppText.authHintTextStyle().copyWith(
+                          style: AppText.hintTextStyle().copyWith(
                               fontSize: 9
                           ),
                         ),
@@ -197,7 +197,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 SizedBox(height: 40),
 
                 // Or Continue With
-                Center(child: Text("- or continue with -", style: AppText.authHintTextStyle())),
+                Center(child: Text("- or continue with -", style: AppText.hintTextStyle())),
                 SizedBox(height: 15),
                 // Social Login Icons
                 Row(
@@ -264,7 +264,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         children: [
                           TextSpan(
                             text: "Existing User? ",
-                            style: AppText.authHintTextStyle(),
+                            style: AppText.hintTextStyle(),
                           ),
                           TextSpan(
                             text: "Login now",
