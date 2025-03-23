@@ -36,13 +36,13 @@ class _BottomNavBarState extends State<BottomNavBar> {
     return Stack(
       children: [
         Scaffold(
-          resizeToAvoidBottomInset: false, // Prevents floating action button from moving up
-          body: _pages[_selectedIndex], // Display selected page
+          resizeToAvoidBottomInset: false,
+          body: _pages[_selectedIndex],
 
           bottomNavigationBar: Theme(
             data: Theme.of(context).copyWith(
-              splashFactory: NoSplash.splashFactory, // Removes splash effect
-              highlightColor: Colors.transparent, // Removes highlight effect
+              splashFactory: NoSplash.splashFactory,
+              highlightColor: Colors.transparent,
             ),
             child: Container(
               decoration: BoxDecoration(
@@ -76,7 +76,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
                     label: "Course",
                   ),
                   BottomNavigationBarItem(
-                    icon: SizedBox.shrink(), // Empty space for FAB
+                    icon: SizedBox.shrink(),
                     label: "",
                   ),
                   BottomNavigationBarItem(
@@ -92,11 +92,9 @@ class _BottomNavBarState extends State<BottomNavBar> {
             ),
           ),
         ),
-
-        // Floating Action Button outside Scaffold to keep it static
         Positioned(
           bottom: 20,
-          left: MediaQuery.of(context).size.width / 2 - 28, // Center FAB
+          left: MediaQuery.of(context).size.width / 2 - 28,
           child: FloatingActionButton(
             backgroundColor: AppColors.theme,
             onPressed: () {
@@ -106,7 +104,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
               );
             },
             shape: CircleBorder(side: BorderSide(color: Colors.grey)),
-            child: Icon(Icons.search, color: Colors.grey, size: 28),
+            child: Icon(Icons.search, color: Colors.black, size: 28),
           ),
         ),
       ],

@@ -65,10 +65,17 @@ class AppText{
     );
   }
   static TextStyle mainHeadingTextStyle(){
-    return GoogleFonts.montserrat(
-        fontSize: 18,
+    return GoogleFonts.poppins(
+        fontSize: 24,
         color: Colors.black,
         fontWeight: FontWeight.w600
+    );
+  }
+  static TextStyle mainSubHeadingTextStyle(){
+    return GoogleFonts.poppins(
+        fontSize: 14,
+        color: Colors.black,
+        fontWeight: FontWeight.normal
     );
   }
 }
