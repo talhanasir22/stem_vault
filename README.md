@@ -1,4 +1,4 @@
-# stem_vault
+# Stem Vault
 
 A new Flutter project.
 
