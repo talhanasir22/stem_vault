@@ -38,6 +38,7 @@ dependencies:
   shared_preferences: ^2.5.2
   hexagon: ^0.2.0
   page_transition: ^2.2.1
+  shimmer: ^3.0.0
 
 dev_dependencies:
   flutter_test:

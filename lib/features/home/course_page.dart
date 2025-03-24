@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+import 'package:shimmer/shimmer.dart';
 import 'package:stem_vault/Core/appColors.dart';
 import 'package:stem_vault/Core/apptext.dart';
+import 'package:stem_vault/Shared/course_annoucement_banner.dart';
 
 class CoursePage extends StatefulWidget {
   const CoursePage({super.key});
@@ -9,10 +12,23 @@ class CoursePage extends StatefulWidget {
   State<CoursePage> createState() => _CoursePageState();
 }
 
-class _CoursePageState extends State<CoursePage> {
+class _CoursePageState extends State<CoursePage> with SingleTickerProviderStateMixin {
   String? selectedCategory;
   String? selectedDuration;
+  late TabController _tabController;
 
+  List<Color> colors = [
+    Colors.blue,
+    Colors.green,
+    Colors.red,
+    Colors.orange,
+    Colors.purple,
+    Colors.teal,
+    Colors.amber,
+    Colors.indigo,
+    Colors.cyan,
+    Colors.brown,
+  ];
   final List<String> categories = [
     "SCIENCE",
     "TECHNOLOGY",
@@ -27,6 +43,45 @@ class _CoursePageState extends State<CoursePage> {
     "20-24 Hours",
     "24-30 Hours"
   ];
+// 10 STEM-related courses
+  List<String> courses = [
+    "Game Development",
+    "3D Animation",
+    "Machine Learning",
+    "Data Science",
+    "Cybersecurity",
+    "Artificial Intelligence",
+    "Cloud Computing",
+    "Robotics",
+    "Mobile App Development",
+    "Web Development",
+  ];
+
+// 10 Instructor Names
+  List<String> instructors = [
+    "Dr. Alan Smith",
+    "Prof. Emily Johnson",
+    "Michael Brown",
+    "Sarah Williams",
+    "David Lee",
+    "Jessica Taylor",
+    "John Carter",
+    "Sophia Anderson",
+    "James Wilson",
+    "Olivia Martinez",
+  ];
+
+// 10 Course Durations (Hours) - Between 3 and 30 hours
+  List<int> courseDurations = [3, 5, 8, 10, 12, 14, 18, 20, 24, 30];
+
+  @override
+  void initState() {
+    _tabController = TabController(length: 5, vsync: this);
+    _tabController.addListener(() {
+      setState(() {});
+    });
+    super.initState();
+  }
 
   void _showFilterBottomSheet() {
     showModalBottomSheet(
@@ -193,36 +248,223 @@ class _CoursePageState extends State<CoursePage> {
           style: AppText.mainHeadingTextStyle(),
         ),
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Center(
-              child: SizedBox(
-                width: MediaQuery.of(context).size.width * 0.90,
-                height: 40,
-                child: TextField(
-                  style: TextStyle(fontSize: 14),
-                  textAlignVertical: TextAlignVertical.center,
-                  decoration: InputDecoration(
-                    contentPadding: EdgeInsets.symmetric(vertical: 10),
-                    hintText: "Find Course",
-                    hintStyle: AppText.hintTextStyle(),
-                    prefixIcon: Icon(Icons.search, color: AppColors.hintIconColor),
-                    suffixIcon: IconButton(
-                      onPressed: _showFilterBottomSheet,
-                      icon: Icon(Icons.tune_rounded, color: AppColors.hintIconColor),
-                    ),
-                    filled: true,
-                    fillColor: AppColors.textFieldColor,
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12),
-                    ),
+      body: Column(
+        children: [
+          Center(
+            child: SizedBox(
+              width: MediaQuery.of(context).size.width * 0.90,
+              height: 40,
+              child: TextField(
+                style: TextStyle(fontSize: 14),
+                textAlignVertical: TextAlignVertical.center,
+                decoration: InputDecoration(
+                  contentPadding: EdgeInsets.symmetric(vertical: 10),
+                  hintText: "Find Course",
+                  hintStyle: AppText.hintTextStyle(),
+                  prefixIcon: Icon(Icons.search, color: AppColors.hintIconColor),
+                  suffixIcon: IconButton(
+                    onPressed: _showFilterBottomSheet,
+                    icon: Icon(Icons.tune_rounded, color: AppColors.hintIconColor),
+                  ),
+                  filled: true,
+                  fillColor: AppColors.textFieldColor,
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(18),
                   ),
                 ),
               ),
             ),
-          ],
-        ),
+          ),
+         CourseAnnouncementBanner(),
+          Padding(
+            padding: const EdgeInsets.only(top: 15.0, bottom: 10), // Added bottom padding
+            child: SizedBox(
+              height: 30, // Adjust height as needed
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: 5, // Total number of tabs
+                itemBuilder: (context, index) {
+                  List<String> tabTitles = [
+                    "All",
+                    "Science",
+                    "Technology",
+                    "Engineering",
+                    "Mathematics"
+                  ];
+                  return Padding(
+                    padding: EdgeInsets.only(
+                      bottom: 1,
+                      left: index == 0 ? 16 : 8,
+                      right: 8,
+                    ),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        _tabController.animateTo(index);
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: _tabController.index == index
+                            ? Colors.black
+                            : Colors.white,
+                        foregroundColor:
+                        _tabController.index == index ? Colors.white : Colors.black,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                      ),
+                      child: Text(tabTitles[index]),
+                    ),
+                  );
+                },
+              ),
+            ),
+          ),
+          SizedBox(height: 15,),
+          Expanded(
+            child: FutureBuilder(
+              future: Future.delayed(Duration(milliseconds: 1500)), // Simulated delay
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return ListView.builder(
+                    shrinkWrap: true,
+                    scrollDirection: Axis.vertical,
+                    itemCount: 10,
+                    itemBuilder: (context, index) {
+                      return Shimmer.fromColors(
+                        baseColor: Colors.grey[300]!,
+                        highlightColor: Colors.grey[100]!,
+                        child: SizedBox(
+                          height: 100,
+                          child: Card(
+                            elevation: 1,
+                            shadowColor: Colors.grey,
+                            child: ListTile(
+                              leading: Container(
+                                height: 80,
+                                width: 50,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  color: Colors.white, // Placeholder color
+                                ),
+                              ),
+                              title: Container(
+                                height: 10,
+                                width: 100,
+                                color: Colors.white, // Placeholder
+                              ),
+                              subtitle: Row(
+                                children: [
+                                  Container(
+                                    height: 10,
+                                    width: 80,
+                                    color: Colors.white, // Placeholder
+                                  ),
+                                  const SizedBox(width: 4),
+                                  Container(
+                                    height: 10,
+                                    width: 40,
+                                    color: Colors.white, // Placeholder
+                                  ),
+                                ],
+                              ),
+                              trailing: Container(
+                                height: 30,
+                                width: 95,
+                                color: Colors.white, // Placeholder
+                              ),
+                            ),
+                          ),
+                        ),
+                      );
+                    },
+                  );
+                }
+
+                return ListView.builder(
+                  shrinkWrap: true,
+                  scrollDirection: Axis.vertical,
+                  itemCount: 10,
+                  itemBuilder: (context, index) {
+                    return SizedBox(
+                      width: 50,
+                      height: 100,
+                      child: Card(
+                        color: AppColors.theme,
+                        elevation: 1,
+                        shadowColor: Colors.grey,
+                        child: ListTile(
+                          leading: Container(
+                            height: 80,
+                            width: 50,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: colors[index],
+                            ),
+                          ),
+                          title: Text(
+                            courses[index],
+                            style: AppText.mainSubHeadingTextStyle().copyWith(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 14,
+                            ),
+                          ),
+                          subtitle: Row(
+                            children: [
+                              Flexible(
+                                child: Text(
+                                  instructors[index],
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(fontSize: 12),
+                                ),
+                              ),
+                              const SizedBox(width: 4),
+                              Container(
+                                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                                decoration: BoxDecoration(
+                                  color: Color(0xffFFEBF0),
+                                  borderRadius: BorderRadius.circular(8),
+                                  border: Border.all(color: Color(0xffFFEBF0)),
+                                ),
+                                child: Text(
+                                  "${courseDurations[index]}h",
+                                  style: const TextStyle(
+                                    color: Color(0xffFF6905),
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 10,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          trailing: SizedBox(
+                            height: 30,
+                            width: 95,
+                            child: ElevatedButton(
+                              onPressed: () {},
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: AppColors.bgColor,
+                                padding: EdgeInsets.zero,
+                              ),
+                              child: Text(
+                                "Enroll Now",
+                                style: AppText.buttonTextStyle().copyWith(
+                                  fontSize: 10,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    );
+                  },
+                );
+              },
+            ),
+          ),
+
+
+
+    ],
       ),
     );
   }
