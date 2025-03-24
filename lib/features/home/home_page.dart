@@ -98,7 +98,7 @@ class _HomePageState extends State<HomePage> {
 
                       RichText(
                         text: TextSpan(
-                          text: "46min",
+                          text: "0",
                           style: AppText.mainHeadingTextStyle(),
                           children: [
                             TextSpan(
@@ -114,7 +114,7 @@ class _HomePageState extends State<HomePage> {
                       SizedBox(
                         width: MediaQuery.of(context).size.width * 0.4,
                         child: LinearProgressIndicator(
-                          value: 0.6, // 60% progress
+                          value: 0.0, // 60% progress
                           backgroundColor: Colors.grey[300],
                           valueColor: AlwaysStoppedAnimation<Color>(Colors.orange),
                         ),
@@ -140,6 +140,181 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ),
+          Positioned(
+            top: 250,
+            left: MediaQuery.of(context).size.width * 0.075,
+            child: SizedBox(
+              height: 155,
+              width: MediaQuery.of(context).size.width * 0.85,
+              child: Card(
+                elevation: 1,
+                color: Color(0xffCEECFE),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12)
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Text("What do you want to learn today ?",style: AppText.mainSubHeadingTextStyle().copyWith(
+                        fontWeight: FontWeight.bold
+                      ),),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(top: 50.0,left: 10),
+                          child: ElevatedButton(
+                            onPressed: () {},
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: AppColors.bgColor,
+                              padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                            ),
+                            child: Text("Get Started",style: AppText.buttonTextStyle().copyWith(
+                                color: AppColors.theme
+                            ),),
+                          ),
+                        ),
+                        CircleAvatar(
+                          backgroundImage: AssetImage("assets/Images/Page3.png"),
+                          radius: 50,
+                        ),
+                      ],
+                    ),
+
+                  ],
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            top: 420,
+              left: MediaQuery.of(context).size.width * 0.085,
+              child: Text("Learning Plan"
+                ,style: AppText.mainHeadingTextStyle().copyWith(
+                  fontSize: 18
+                ),)
+          ),
+          Positioned(
+            top: 450,
+            left: MediaQuery.of(context).size.width * 0.075,
+            child: SizedBox(
+              height: 120,
+              width: MediaQuery.of(context).size.width * 0.85,
+              child: Card(
+                elevation: 1,
+                color: Color(0xffCEECFE),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12)
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Center(
+                        child: SizedBox(
+                          height: 80,
+                          width: MediaQuery.of(context).size.width * 0.75,
+                          child: Text("Explore STEM courses, track progress, and master skills. Start innovating today!"
+                            ,style: AppText.mainSubHeadingTextStyle().copyWith(
+                              fontWeight: FontWeight.w600
+                          ),),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            top: 590,
+            left: MediaQuery.of(context).size.width * 0.075,
+            child: SizedBox(
+              height: 130,
+              width: MediaQuery.of(context).size.width * 0.85,
+              child: Card(
+                elevation: 1,
+                color: AppColors.bgColor,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12)
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(" The STEM Vault"
+                      ,style: AppText.mainHeadingTextStyle().copyWith(
+                          fontSize: 23,
+                          fontWeight: FontWeight.w600,
+                          color: AppColors.theme
+                      ),),
+                    Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left: 8.0),
+                          child: SizedBox(
+                            height: 70,
+                            width: 200,
+                            child: Text("Unlocking Knowledge, Powering Innovation!"
+                              ,style: AppText.mainSubHeadingTextStyle().copyWith(
+                                  fontSize: 12
+                              ),),
+                          ),
+                        ),
+                        Spacer(),
+                        Padding(
+                          padding: const EdgeInsets.only(right:8.0,bottom: 10),
+                          child: Container(
+                            height: 75,
+                            width: 75,
+                            decoration: BoxDecoration(
+                                color: AppColors.theme.withOpacity(0.56),
+                                shape: BoxShape.circle
+                            ),
+                            child: Center(
+                              child:  Container(
+                                height: 50,
+                                width: 50,
+                                decoration: BoxDecoration(
+                                    color: AppColors.theme.withOpacity(0.8),
+                                    shape: BoxShape.circle
+                                ),
+                                child:   Center(
+                                  child: Container(
+                                    height: 25,
+                                    width: 25,
+                                    decoration: BoxDecoration(
+                                        color: AppColors.theme.withOpacity(1),
+                                        shape: BoxShape.circle
+                                    ),
+                                    child: Center(
+                                        child: CircleAvatar(
+                                          radius: 30,
+                                          backgroundColor: AppColors.theme,
+                                          backgroundImage: AssetImage("assets/Images/Page2.png"),
+                                        )),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+
+                  ],
+                ),
+              ),
+            ),
+          ),
+
         ],
       ),
     );

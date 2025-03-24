@@ -6,7 +6,7 @@ import 'package:stem_vault/features/auth/signuppage.dart';
 import '../../Core/appColors.dart';
 import '../../Core/apptext.dart';
 import '../../Shared/LoadingIndicator.dart';
-import '../home/bottomnavbar.dart';
+import '../../Shared/bottomnavbar.dart';
 import '../home/role_selection_page.dart';
 import 'forgotpasswordpage.dart';
 

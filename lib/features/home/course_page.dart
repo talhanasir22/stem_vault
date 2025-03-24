@@ -129,12 +129,12 @@ class _CoursePageState extends State<CoursePage> with SingleTickerProviderStateM
                           onTap: () {
                             setModalState(() {
                               selectedCategory =
-                              isSelected ? null : category; // Toggle selection
+                              isSelected ? null : category;
                             });
                           },
                           child: Container(
                             padding:
-                            EdgeInsets.symmetric(vertical: 8, horizontal: 12),
+                            EdgeInsets.symmetric(vertical: 2, horizontal: 12),
                             decoration: BoxDecoration(
                               color: isSelected ? Colors.black : Colors.white,
                               borderRadius: BorderRadius.circular(8),
@@ -174,7 +174,7 @@ class _CoursePageState extends State<CoursePage> with SingleTickerProviderStateM
                           },
                           child: Container(
                             padding:
-                            EdgeInsets.symmetric(vertical: 6, horizontal: 12),
+                            EdgeInsets.symmetric(vertical: 2, horizontal: 12),
                             decoration: BoxDecoration(
                               color: isSelected ? Colors.black : Colors.white,
                               borderRadius: BorderRadius.circular(8),
@@ -195,7 +195,7 @@ class _CoursePageState extends State<CoursePage> with SingleTickerProviderStateM
                     Row(
                       children: [
                         SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.24,
+                          width: 100,
                           child: ElevatedButton(
                             onPressed: () {
                               Navigator.pop(context); // Close the modal
@@ -213,7 +213,7 @@ class _CoursePageState extends State<CoursePage> with SingleTickerProviderStateM
                         ),
                         SizedBox(width: 20,),
                         SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.50,
+                          width: 200,
                           child: ElevatedButton(
                             onPressed: () {
                               Navigator.pop(context); // Close the modal
@@ -329,16 +329,16 @@ class _CoursePageState extends State<CoursePage> with SingleTickerProviderStateM
                     scrollDirection: Axis.vertical,
                     itemCount: 10,
                     itemBuilder: (context, index) {
-                      return Shimmer.fromColors(
-                        baseColor: Colors.grey[300]!,
-                        highlightColor: Colors.grey[100]!,
-                        child: SizedBox(
-                          height: 100,
-                          child: Card(
-                            elevation: 1,
-                            shadowColor: Colors.grey,
-                            child: ListTile(
-                              leading: Container(
+                      return SizedBox(
+                        height: 100,
+                        child: Card(
+                          elevation: 1,
+                          shadowColor: Colors.grey,
+                          child: ListTile(
+                            leading: Shimmer.fromColors(
+                              baseColor: Colors.grey[300]!,
+                              highlightColor: Colors.grey[100]!,
+                              child: Container(
                                 height: 80,
                                 width: 50,
                                 decoration: BoxDecoration(
@@ -346,12 +346,20 @@ class _CoursePageState extends State<CoursePage> with SingleTickerProviderStateM
                                   color: Colors.white, // Placeholder color
                                 ),
                               ),
-                              title: Container(
+                            ),
+                            title: Shimmer.fromColors(
+                              baseColor: Colors.grey[300]!,
+                              highlightColor: Colors.grey[100]!,
+                              child: Container(
                                 height: 10,
                                 width: 100,
                                 color: Colors.white, // Placeholder
                               ),
-                              subtitle: Row(
+                            ),
+                            subtitle: Shimmer.fromColors(
+                              baseColor: Colors.grey[300]!,
+                              highlightColor: Colors.grey[100]!,
+                              child: Row(
                                 children: [
                                   Container(
                                     height: 10,
@@ -366,7 +374,11 @@ class _CoursePageState extends State<CoursePage> with SingleTickerProviderStateM
                                   ),
                                 ],
                               ),
-                              trailing: Container(
+                            ),
+                            trailing: Shimmer.fromColors(
+                              baseColor: Colors.grey[300]!,
+                              highlightColor: Colors.grey[100]!,
+                              child: Container(
                                 height: 30,
                                 width: 95,
                                 color: Colors.white, // Placeholder

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import '../../Core/appColors.dart';
-import '../../Core/apptext.dart';
-import 'account_page.dart';
-import 'chat_page.dart';
-import 'course_page.dart';
-import 'home_page.dart';
-import 'search_page.dart';
+import '../Core/appColors.dart';
+import '../Core/apptext.dart';
+import '../features/home/account_page.dart';
+import '../features/home/chat_page.dart';
+import '../features/home/course_page.dart';
+import '../features/home/home_page.dart';
+import '../features/home/search_page.dart';
 
 class BottomNavBar extends StatefulWidget {
   const BottomNavBar({super.key});
@@ -85,7 +85,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
                   ),
                   BottomNavigationBarItem(
                     icon: Icon(Icons.person, size: 22),
-                    label: "Profile",
+                    label: "Account",
                   ),
                 ],
               ),
