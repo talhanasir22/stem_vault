@@ -3,11 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:stem_vault/Core/appColors.dart';
 import 'package:stem_vault/Core/apptext.dart';
-import 'package:stem_vault/features/home/Account%20Screens/Edit%20Profile%20Screens/Edit_profile_screen.dart';
 import 'package:stem_vault/features/home/Account%20Screens/assignment_screen.dart';
 import 'package:stem_vault/features/home/Account%20Screens/grade_screen.dart';
 import 'package:stem_vault/features/home/Account%20Screens/notification_setting_screen.dart';
 import 'package:stem_vault/features/home/Account%20Screens/submission%20_screen.dart';
+
+import 'Edit Profile Screens/Edit_profile_screen.dart';
 
 class AccountPage extends StatefulWidget {
   const AccountPage({super.key});
@@ -80,7 +81,7 @@ class _AccountPageState extends State<AccountPage> {
               ),
             ),
             const SizedBox(height: 20),
-        
+
             /// User-friendly prioritized buttons
             _buildTextButton("Edit Profile",(){
               Navigator.push(

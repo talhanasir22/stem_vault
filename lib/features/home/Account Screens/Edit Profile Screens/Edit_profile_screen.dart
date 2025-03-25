@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:stem_vault/Core/apptext.dart';
-import 'package:stem_vault/Core/appColors.dart';
 import 'package:stem_vault/features/home/Account%20Screens/Edit%20Profile%20Screens/change_password.dart';
 
 import 'change_user_name.dart';

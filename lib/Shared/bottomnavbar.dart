@@ -1,23 +1,37 @@
 import 'package:flutter/material.dart';
-import '../Core/appColors.dart';
-import '../Core/apptext.dart';
-import '../features/home/account_page.dart';
+import '../../Core/appColors.dart';
+import '../../Core/apptext.dart';
+import '../features/home/Account Screens/account_page.dart';
+import '../features/home/Home Screens/home_page.dart';
 import '../features/home/chat_page.dart';
 import '../features/home/course_page.dart';
-import '../features/home/Home Screens/home_page.dart';
 import '../features/home/search_page.dart';
 
 class BottomNavBar extends StatefulWidget {
-  const BottomNavBar({super.key});
+  final int initialIndex; // New parameter to set index initially
+
+  const BottomNavBar({super.key, this.initialIndex = 0});
 
   @override
   _BottomNavBarState createState() => _BottomNavBarState();
 }
 
 class _BottomNavBarState extends State<BottomNavBar> {
-  int _selectedIndex = 0;
-  final List<Widget> _pages = [
-    HomePage(),
+  late int _selectedIndex;
+
+  void initState() {
+    super.initState();
+    _selectedIndex = widget.initialIndex;
+  }
+
+  void _updateNavIndex(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
+  late final List<Widget> _pages = [
+    HomePage(onNavIndexChange: _updateNavIndex), // Pass callback function
     CoursePage(),
     Container(),
     ChatPage(),
@@ -30,7 +44,6 @@ class _BottomNavBarState extends State<BottomNavBar> {
       _selectedIndex = index;
     });
   }
-
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -85,7 +98,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
                   ),
                   BottomNavigationBarItem(
                     icon: Icon(Icons.person, size: 22),
-                    label: "Account",
+                    label: "Profile",
                   ),
                 ],
               ),
