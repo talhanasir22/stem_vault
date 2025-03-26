@@ -5,7 +5,8 @@ import '../Core/appColors.dart';
 import '../Core/apptext.dart';
 
 class CourseAnnouncementBanner extends StatelessWidget{
-  const CourseAnnouncementBanner({super.key});
+  final String bannerText;
+  const CourseAnnouncementBanner({super.key, required this.bannerText});
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +27,7 @@ class CourseAnnouncementBanner extends StatelessWidget{
               child: SizedBox(
                   height: 100,
                   width: 200,
-                  child: Text("Explore a diverse selection of STEM courses for a comprehensive learning experience."
+                  child: Text( bannerText
                     ,style: AppText.mainSubHeadingTextStyle().copyWith(
                         fontSize: 12,
                         fontWeight: FontWeight.w600

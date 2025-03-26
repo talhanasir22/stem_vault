@@ -275,7 +275,7 @@ class _CoursePageState extends State<CoursePage> with SingleTickerProviderStateM
               ),
             ),
           ),
-         CourseAnnouncementBanner(),
+         CourseAnnouncementBanner(bannerText: "Explore a diverse selection of STEM courses for a comprehensive learning experience.",),
           Padding(
             padding: const EdgeInsets.only(top: 15.0, bottom: 10), // Added bottom padding
             child: SizedBox(

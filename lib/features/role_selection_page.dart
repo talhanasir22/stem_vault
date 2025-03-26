@@ -2,9 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hexagon/hexagon.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:stem_vault/features/Teacher%20auth/teacher_loginpage.dart';
 import 'package:stem_vault/features/auth/loginpage.dart';
-import '../../Core/appColors.dart';
-import '../../Core/apptext.dart';
+import '../Core/appColors.dart';
+import '../Core/apptext.dart';
 
 class RoleSelectionPage extends StatelessWidget {
   const RoleSelectionPage({super.key});
@@ -49,7 +50,7 @@ class RoleSelectionPage extends StatelessWidget {
                                 PageTransition(
                                   type: PageTransitionType.rightToLeft,
                                   duration: const Duration(milliseconds: 300),
-                                  child: LoginPage(),
+                                  child: TeacherLoginPage(),
                                 ),
                               );
                             },
@@ -83,7 +84,7 @@ class RoleSelectionPage extends StatelessWidget {
                                 PageTransition(
                                   type: PageTransitionType.rightToLeft,
                                   duration: const Duration(milliseconds: 300),
-                                  child: LoginPage(), // Replace with your actual destination page
+                                  child: LoginPage()
                                 ),
                               );
                             },

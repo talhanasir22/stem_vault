@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:stem_vault/Core/appColors.dart';
-import 'package:stem_vault/features/home/role_selection_page.dart';
+import 'package:stem_vault/features/role_selection_page.dart';
 import '../../Shared/DotIndicator.dart';
 import 'FirstPage.dart';
 import 'SecondPage.dart';

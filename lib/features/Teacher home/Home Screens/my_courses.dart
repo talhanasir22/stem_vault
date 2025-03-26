@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:stem_vault/Core/apptext.dart';
+import 'package:stem_vault/Shared/course_annoucement_banner.dart';
 import '../../../Core/appColors.dart';
-
 class MyCourse extends StatefulWidget {
   const MyCourse({super.key});
 
@@ -67,26 +67,9 @@ class _MyCourseState extends State<MyCourse> {
 
           /// First Container (Shimmer Effect Applied)
           Center(
-            child: Container(
-              height: 100,
-              width: MediaQuery.of(context).size.width * 0.85,
-              padding: const EdgeInsets.all(12),
-              decoration: BoxDecoration(
-                color: AppColors.theme,
-                borderRadius: BorderRadius.circular(15),
-                boxShadow: const [
-                  BoxShadow(
-                    color: Colors.black26,
-                    blurRadius: 10,
-                    spreadRadius: 2,
-                    offset: Offset(0, 3),
-                  )
-                ],
-              ),
-              child: isLoading
-                  ? _buildShimmerFirstContainer()
-                  : _buildFirstContainerContent(),
-            ),
+            child: isLoading
+                ? _buildShimmerFirstContainer() // Show shimmer effect
+                : CourseAnnouncementBanner(bannerText: "Manage courses, & assign assignments\nAll in one place.",),
           ),
 
           const SizedBox(height: 20),
@@ -97,10 +80,10 @@ class _MyCourseState extends State<MyCourse> {
               padding: const EdgeInsets.all(8.0),
               child: GridView.builder(
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
+                  crossAxisCount: 1,
                   crossAxisSpacing: 10,
                   mainAxisSpacing: 10,
-                  childAspectRatio: 3 / 4,
+                  childAspectRatio: 2,
                 ),
                 itemCount: 5,
                 itemBuilder: (context, index) {
@@ -121,45 +104,33 @@ class _MyCourseState extends State<MyCourse> {
     return Shimmer.fromColors(
       baseColor: Colors.grey[300]!,
       highlightColor: Colors.grey[100]!,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(height: 15, width: 100, color: Colors.white),
-          const SizedBox(height: 5),
-          Container(height: 20, width: 80, color: Colors.white),
-          const SizedBox(height: 5),
-          Container(height: 8, width: double.infinity, color: Colors.white),
-        ],
+      child: Container(
+        height: 100,
+        width: MediaQuery.of(context).size.width * 0.85,
+        decoration: BoxDecoration(
+          color: AppColors.theme,
+          borderRadius: BorderRadius.circular(15),
+          boxShadow: const [
+            BoxShadow(
+              color: Colors.black26,
+              blurRadius: 10,
+              spreadRadius: 2,
+              offset: Offset(0, 3),
+            )
+          ],
+        ),
+        padding: const EdgeInsets.all(12),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(height: 15, width: 100, color: Colors.white),
+            const SizedBox(height: 5),
+            Container(height: 20, width: 80, color: Colors.white),
+            const SizedBox(height: 5),
+            Container(height: 8, width: double.infinity, color: Colors.white),
+          ],
+        ),
       ),
-    );
-  }
-
-  /// **Actual Content for First Container**
-  Widget _buildFirstContainerContent() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text("Learned Today", style: AppText.hintTextStyle()),
-        const SizedBox(height: 5),
-        RichText(
-          text: TextSpan(
-            text: "35",
-            style: AppText.mainHeadingTextStyle(),
-            children: [
-              TextSpan(
-                text: "/60min",
-                style: AppText.hintTextStyle(),
-              ),
-            ],
-          ),
-        ),
-        const SizedBox(height: 5),
-        LinearProgressIndicator(
-          value: 0.6,
-          backgroundColor: Colors.grey[300],
-          valueColor: const AlwaysStoppedAnimation<Color>(Colors.orange),
-        ),
-      ],
     );
   }
 
@@ -213,44 +184,90 @@ class _MyCourseState extends State<MyCourse> {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              courseTitles[index],
-              style: AppText.mainHeadingTextStyle().copyWith(
-                fontSize: 18,
-                color: Colors.white,
+            Center(
+              child: Text(
+                courseTitles[index],
+                style: AppText.mainHeadingTextStyle().copyWith(
+                  fontSize: 18,
+                  color: Colors.white,
+                ),
               ),
             ),
-            LinearProgressIndicator(
-              value: progressValues[index],
-              backgroundColor: Colors.grey[300],
-              valueColor: const AlwaysStoppedAnimation<Color>(Colors.orange),
-            ),
-            Text(
-              "Completed",
-              style: AppText.mainSubHeadingTextStyle().copyWith(
-                color: Colors.white,
-              ),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  progressText[index],
-                  style: AppText.mainSubHeadingTextStyle().copyWith(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16,
-                  ),
-                ),
-                IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.play_circle, color: Colors.white, size: 40),
-                ),
-              ],
-            ),
+           Row(
+             mainAxisAlignment: MainAxisAlignment.spaceAround,
+             children: [
+               SizedBox(
+                 height: 75,
+                 width: 95,
+                 child: Card(
+                   elevation: 10,
+                   color: AppColors.bgColor,
+                   child: Column(
+                     mainAxisAlignment: MainAxisAlignment.spaceAround,
+                     children: [
+                       Padding(
+                         padding: const EdgeInsets.only(left: 8.0),
+                         child: Text("Student Enrolled",style: AppText.mainSubHeadingTextStyle().copyWith(
+                           fontWeight: FontWeight.bold,
+                             color: AppColors.theme),),
+                       ),
+                       Center(child: Text("3",style: AppText.mainSubHeadingTextStyle().copyWith(
+                           fontWeight: FontWeight.bold,
+                           color: AppColors.theme),))
+                     ],
+                   ),
+
+                 ),
+               ),
+               SizedBox(
+                 height: 75,
+                 width: 95,
+                 child: Card(
+                   elevation: 10,
+                   color: AppColors.bgColor,
+                   child: Column(
+                     mainAxisAlignment: MainAxisAlignment.spaceAround,
+                     children: [
+                       Padding(
+                         padding: const EdgeInsets.only(left: 8.0),
+                         child: Text("Edit your course",style: AppText.mainSubHeadingTextStyle().copyWith(
+                             fontWeight: FontWeight.bold,
+                             color: AppColors.theme),),
+                       ),
+                       Center(child:Icon(Icons.settings,color: AppColors.theme,)),
+                     ],
+                   ),
+
+                 ),
+               ),
+               SizedBox(
+                 height: 75,
+                 width: 95,
+                 child: Card(
+                   elevation: 10,
+                   color: AppColors.bgColor,
+                   child: Column(
+                     mainAxisAlignment: MainAxisAlignment.spaceAround,
+                     children: [
+                       Padding(
+                         padding: const EdgeInsets.only(left: 2.0,right: 2),
+                         child: Text("       Set\nAssignment",style: AppText.mainSubHeadingTextStyle().copyWith(
+                           fontSize: 12,
+                             fontWeight: FontWeight.bold,
+                             color: AppColors.theme),),
+                       ),
+                       Center(child: Icon(Icons.menu_book,color: AppColors.theme,))
+                     ],
+                   ),
+
+                 ),
+               ),
+             ],
+           ),
           ],
         ),
       ),
     );
+
   }
 }

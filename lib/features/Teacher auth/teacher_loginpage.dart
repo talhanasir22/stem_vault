@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:stem_vault/Shared/teacherbottomnavbar.dart';
 import 'package:stem_vault/features/auth/signuppage.dart';
 
 import '../../Core/appColors.dart';
@@ -8,16 +9,16 @@ import '../../Core/apptext.dart';
 import '../../Shared/LoadingIndicator.dart';
 import '../../Shared/bottomnavbar.dart';
 import '../role_selection_page.dart';
-import 'forgotpasswordpage.dart';
+import 'teacher_forgotpasswordpage.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class TeacherLoginPage extends StatefulWidget {
+  const TeacherLoginPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<TeacherLoginPage> createState() => _TeacherLoginPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _TeacherLoginPageState extends State<TeacherLoginPage> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
@@ -128,7 +129,7 @@ class _LoginPageState extends State<LoginPage> {
                           Navigator.push(context,   PageTransition(
                             type: PageTransitionType.rightToLeft,
                             duration: Duration(milliseconds: 300),
-                            child: ForgotPassword(),
+                            child: TeacherForgotPassword(),
                           ));
                         },
                         child: Text("Forgot Password?",
@@ -192,7 +193,7 @@ class _LoginPageState extends State<LoginPage> {
                         if (mounted) {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => BottomNavBar()),
+                            MaterialPageRoute(builder: (context) => TeacherBottomNavBar()),
                           );
                         }
                         setState(() {
