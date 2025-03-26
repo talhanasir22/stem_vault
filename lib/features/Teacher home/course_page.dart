@@ -43,7 +43,7 @@ class _CoursePageState extends State<CoursePage> with SingleTickerProviderStateM
             _buildLabel("Course description"),
             _buildTextField(maxLines: 3,maxlenght: 50),
 
-            _buildLabel("Course picture:"),
+            _buildLabel("Course thumbnail:"),
             IconButton(
               icon: Icon(Icons.camera_alt, size: 30),
               onPressed: () {},
@@ -59,7 +59,7 @@ class _CoursePageState extends State<CoursePage> with SingleTickerProviderStateM
             Row(
               children: [
                 IconButton(
-                  icon: Icon(Icons.camera_alt, size: 30),
+                  icon: Icon(Icons.videocam, size: 30),
                   onPressed: () {},
                 ),
                 IconButton(

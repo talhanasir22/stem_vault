@@ -31,13 +31,13 @@ class _AccountPageState extends State<AccountPage> {
           children: [
             ListTile(
               title: Text(
-                "Hi, Fahad",
+                "Hi, Fawad",
                 style: AppText.mainHeadingTextStyle().copyWith(
                   color: AppColors.bgColor,
                 ),
               ),
               subtitle: Text(
-                "Student",
+                "Teacher",
                 style: AppText.mainSubHeadingTextStyle().copyWith(
                   color: AppColors.bgColor,
                 ),
@@ -46,38 +46,6 @@ class _AccountPageState extends State<AccountPage> {
                 Icons.person,
                 size: 50,
                 color: Colors.blue.shade900,
-              ),
-            ),
-            SizedBox(height: 10,),
-            Center(
-              child: SizedBox(
-                width: MediaQuery.of(context).size.width * 0.89,
-                child: ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.bgColor,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "View Progress",
-                        style: AppText.mainHeadingTextStyle().copyWith(
-                          color: AppColors.theme,
-                          fontSize: 20,
-                        ),
-                      ),
-                      Icon(
-                        Icons.arrow_forward_ios,
-                        color: AppColors.theme,
-                        size: 20,
-                      ),
-                    ],
-                  ),
-                ),
               ),
             ),
             const SizedBox(height: 20),
@@ -101,30 +69,12 @@ class _AccountPageState extends State<AccountPage> {
                 ),
               );
             }),
-            _buildTextButton("Due Assignments",(){
-              Navigator.push(
-                context,
-                PageTransition(
-                  type: PageTransitionType.rightToLeft,
-                  child: AssignmentScreen(),
-                ),
-              );
-            }),
-            _buildTextButton("Submissions",(){
+            _buildTextButton("Submissions by students",(){
               Navigator.push(
                 context,
                 PageTransition(
                   type: PageTransitionType.rightToLeft,
                   child: SubmissionScreen(),
-                ),
-              );
-            }),
-            _buildTextButton("Grades",(){
-              Navigator.push(
-                context,
-                PageTransition(
-                  type: PageTransitionType.rightToLeft,
-                  child: GradeScreen(),
                 ),
               );
             }),

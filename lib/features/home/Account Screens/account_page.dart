@@ -128,6 +128,9 @@ class _AccountPageState extends State<AccountPage> {
                 ),
               );
             }),
+            _buildTextButton("Set Daily Target",(){
+
+            }),
             _buildTextButton("Help",(){}),
             _buildTextButton("Customer Support",(){}),_buildTextButton("Logout", () {
               showDialog(

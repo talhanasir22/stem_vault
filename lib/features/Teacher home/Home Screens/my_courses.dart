@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:stem_vault/Core/apptext.dart';
 import 'package:stem_vault/Shared/course_annoucement_banner.dart';
+import 'package:stem_vault/features/Teacher%20home/Home%20Screens/set_assignment.dart';
 import '../../../Core/appColors.dart';
 class MyCourse extends StatefulWidget {
   const MyCourse({super.key});
@@ -240,26 +242,36 @@ class _MyCourseState extends State<MyCourse> {
 
                  ),
                ),
-               SizedBox(
-                 height: 75,
-                 width: 95,
-                 child: Card(
-                   elevation: 10,
-                   color: AppColors.bgColor,
-                   child: Column(
-                     mainAxisAlignment: MainAxisAlignment.spaceAround,
-                     children: [
-                       Padding(
-                         padding: const EdgeInsets.only(left: 2.0,right: 2),
-                         child: Text("       Set\nAssignment",style: AppText.mainSubHeadingTextStyle().copyWith(
-                           fontSize: 12,
-                             fontWeight: FontWeight.bold,
-                             color: AppColors.theme),),
-                       ),
-                       Center(child: Icon(Icons.menu_book,color: AppColors.theme,))
-                     ],
-                   ),
+               GestureDetector(
+                 onTap: (){
+                   Navigator.push(context,
+                   PageTransition(
+                     child: SetAssignment(),
+                     type: PageTransitionType.rightToLeft
+                   )
+                   );
+                 },
+                 child: SizedBox(
+                   height: 75,
+                   width: 95,
+                   child: Card(
+                     elevation: 10,
+                     color: AppColors.bgColor,
+                     child: Column(
+                       mainAxisAlignment: MainAxisAlignment.spaceAround,
+                       children: [
+                         Padding(
+                           padding: const EdgeInsets.only(left: 2.0,right: 2),
+                           child: Text("       Set\nAssignment",style: AppText.mainSubHeadingTextStyle().copyWith(
+                             fontSize: 12,
+                               fontWeight: FontWeight.bold,
+                               color: AppColors.theme),),
+                         ),
+                         Center(child: Icon(Icons.menu_book,color: AppColors.theme,))
+                       ],
+                     ),
 
+                   ),
                  ),
                ),
              ],

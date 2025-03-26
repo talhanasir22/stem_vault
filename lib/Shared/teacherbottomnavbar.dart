@@ -6,7 +6,7 @@ import '../features/Teacher home/Account Screens/account_page.dart';
 import '../features/Teacher home/Home Screens/home_page.dart';
 import '../features/Teacher home/chat_page.dart';
 import '../features/Teacher home/course_page.dart';
-import '../features/Teacher home/search_page.dart';
+import '../features/Teacher home/enrolled_students_page.dart';
 
 class TeacherBottomNavBar extends StatefulWidget {
   final int initialIndex; // New parameter to set index initially
@@ -115,7 +115,7 @@ class _TeacherBottomNavBarState extends State<TeacherBottomNavBar> {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => SearchPage()),
+                MaterialPageRoute(builder: (context) => EnrolledStudentPage()),
               );
             },
             shape: CircleBorder(side: BorderSide(color: Colors.grey)),

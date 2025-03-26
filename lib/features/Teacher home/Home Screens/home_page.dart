@@ -1,9 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:stem_vault/Core/appColors.dart';
 import 'package:stem_vault/Core/apptext.dart';
 import 'package:stem_vault/features/Teacher%20home/Home%20Screens/my_courses.dart';
+import 'package:stem_vault/features/Teacher%20home/enrolled_students_page.dart';
 
 
 class HomePage extends StatefulWidget {
@@ -105,9 +105,9 @@ class _HomePageState extends State<HomePage> {
                               padding: const EdgeInsets.all(10.0),
                               child: Center(
                                 child: SizedBox(
-                                  height: 80,
+                                  height: 100,
                                   width: MediaQuery.of(context).size.width * 0.75,
-                                  child: Text("Explore STEM courses, track progress, and master skills. Start innovating today!"
+                                  child: Text("Explore, learn, and grow with interactive STEM courses. Track progress, completehands-on exercises, and master new skills.Your journey to innovation starts here!"
                                     ,style: AppText.mainSubHeadingTextStyle().copyWith(
                                         fontWeight: FontWeight.w600
                                     ),),
@@ -284,7 +284,7 @@ class _HomePageState extends State<HomePage> {
                     onPressed: () {
                       Navigator.push(context,
                           PageTransition(type: PageTransitionType.rightToLeft,
-                          child: MyCourse()
+                          child: EnrolledStudentPage()
                           ));
                     },
                     style: ElevatedButton.styleFrom(
